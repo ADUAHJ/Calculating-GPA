@@ -1,0 +1,25 @@
+void main() {
+  // List of subjects with scores and credit hours
+  List<Map<String, dynamic>> subjects = [
+    {"name": "English", "score": 75, "credit": 4},
+    {"name": "Math", "score": 70, "credit": 3},
+    {"name": "Science", "score": 81, "credit": 5},
+  ];
+
+  double totalScore = 0;
+  int totalCredits = 0;
+
+  // Loop through each subject to calculate total weighted scores and credits
+  for (var subject in subjects) {
+    int score = subject["score"];
+    int credit = subject["credit"];
+    totalScore += score * credit;
+    totalCredits += credit;
+  }
+
+  // GPA calculation
+  double gpa = totalScore / totalCredits;
+
+  // Output only GPA
+  print(gpa.toStringAsFixed(2));
+}
